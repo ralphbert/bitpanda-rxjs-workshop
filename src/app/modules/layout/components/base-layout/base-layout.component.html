@@ -1,0 +1,17 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">RxJS</a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active">About</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="py-4 container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</div>
