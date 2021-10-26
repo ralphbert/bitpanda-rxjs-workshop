@@ -1,0 +1,61 @@
+<div>
+  <h2>Users</h2>
+
+  <div class="row mb-5">
+    <div class="form-group col-auto">
+      <label>Department</label>
+      <select class="form-control">
+        <option [value]="undefined">Choose</option>
+        <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-auto">
+      <label>Level</label>
+      <select class="form-control">
+        <option [value]="undefined">Choose</option>
+        <option *ngFor="let level of levels" [value]="level">{{ level }}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-auto align-self-end">
+      <button class="btn btn-secondary">Reload</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="mb-4">
+      TODO: render users here
+    </div>
+
+    <h4>Example response</h4>
+
+    <div *ngIf="exampleResponse$ | async as response">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Department</th>
+          <th>Level</th>
+          <th>Joined</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of response.results">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.department }}</td>
+          <td>{{ user.level }}</td>
+          <td>{{ user.joinDate }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <app-pagination [pagination]="response.pagination" (goTo)="goToPage($event)"></app-pagination>
+    </div>
+  </div>
+</div>

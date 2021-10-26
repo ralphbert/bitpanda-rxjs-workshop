@@ -1,0 +1,7 @@
+<nav aria-label="navigation" *ngIf="pagination">
+  <ul class="pagination">
+    <li class="page-item" [class.active]="page === pagination.page" *ngFor="let page of pages">
+      <a class="page-link" href="#" (click)="$event.preventDefault(); goTo.emit(page)">{{ page + 1 }}</a>
+    </li>
+  </ul>
+</nav>
