@@ -34,6 +34,10 @@ export class UsersService {
       params = params.set('delay', `${options.delay.min},${options.delay.max}`);
     }
 
+    if (options.errorRate) {
+      params = params.set('errorRate', `${options.errorRate}`);
+    }
+
     if (options.department) {
       params = params.set('department', options.department);
     }
